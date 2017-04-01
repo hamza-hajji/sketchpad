@@ -8,16 +8,30 @@ $(document).ready(function init() {
 				let $div = $('<div>').addClass('pixel').css({
 					width: WIDTH / pixels + 'px',
 					height: WIDTH / pixels + 'px'
-				}).hover(function paint(e) {
-					$(this).addClass('painted')
 				})
 				$('.board').append($div)
 			}
 		}
 	}
+	function paint(e) {
+		console.log($('.rgb-switch').prop('checked'))
+		if ($('.rgb-switch').prop('checked')) {
+			let rand1 = Math.floor(Math.random() * 256),
+				rand2 = Math.floor(Math.random() * 256),
+				rand3 = Math.floor(Math.random() * 256)
+			console.log(rand1, rand2, rand3)
+			let color = 'rgb( ' + rand1 + ', ' + rand2 + ', ' + rand3 + ')'
+			$(this).css('background-color', color)
+		} else {
+			$(this).css('background-color', '#000')
+		}
+		$(this).unbind('mouseenter mouseleave')
+	}
 
 	// initial board
 	buildBoard(pixels)
+
+	$('.pixel').hover(paint)
 
 	// clear and ask for pixels
 	$('.clear').click(function askForPixels(e) {
@@ -26,5 +40,6 @@ $(document).ready(function init() {
 
 		$('.board').html('')
 		buildBoard(new_pixels)
+		$('.pixel').hover(paint)
 	})
 })
