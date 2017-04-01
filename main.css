@@ -4,13 +4,17 @@ body {
 
 .board {
 	background-color: #fff;
-	width: 900px;
-	margin: 100px auto;
+	width: 700px;
+	height: 700px;
+	margin: 100px auto 100px;
 }
 
 .pixel {
+	font-size: 10px;
 	background-color: #fff;
-	width: 56.25px;
-	height: 56.25px;
 	float: left;
+}
+
+.painted {
+	background-color: #000;
 }
