@@ -1,0 +1,16 @@
+body {
+	background-color: #ccc;
+}
+
+.board {
+	background-color: #fff;
+	width: 900px;
+	margin: 100px auto;
+}
+
+.pixel {
+	background-color: #fff;
+	width: 56.25px;
+	height: 56.25px;
+	float: left;
+}
